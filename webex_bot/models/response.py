@@ -25,6 +25,32 @@ def response_from_adaptive_card(adaptive_card: AdaptiveCard) -> Response:
     return response
 
 
+def response_custom_format(text: str,
+                           markdown: str,
+                           files: List[str] = None, 
+                           attachments: List[Dict[str, str]] = None
+                           ) -> Response:
+    """
+    Convenience method for generating a Response from a custom format.
+
+    @param text: The text content of the response.
+    @param markdown: The response content in markdown format.
+    @param files: A list of file attachments associated with the response.
+    @param attachments: A list of additional attachments associated with the response.
+    @return: Response object
+    """
+    response = Response()
+    response.text = text
+    response.markdown = markdown
+
+    if files:
+        response.files = files
+    if attachments:
+        response.attachments = attachments
+
+    return response
+
+
 class Response(object):
     """
     Represents a response object. This object is used to send a response to a message in a room.
