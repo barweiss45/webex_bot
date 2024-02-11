@@ -27,7 +27,7 @@ def response_from_adaptive_card(adaptive_card: AdaptiveCard) -> Response:
 
 def response_custom_format(text: str,
                            markdown: str,
-                           files: List[str] = None, 
+                           files: List[str] = None,
                            attachments: List[Dict[str, str]] = None
                            ) -> Response:
     """
